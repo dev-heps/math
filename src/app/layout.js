@@ -29,10 +29,20 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      style={{ backgroundColor: '#ffffff', color: '#09090b', colorScheme: 'light' }}
     >
-      <body className="min-h-full bg-white text-zinc-900">
-        <div className="min-h-screen bg-white text-zinc-900">
-          <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md px-2 pt-2 border-b border-zinc-100">
+      <body
+        className="min-h-full bg-white text-zinc-900"
+        style={{ backgroundColor: '#ffffff', color: '#09090b', colorScheme: 'light' }}
+      >
+        <div
+          className="min-h-screen bg-white text-zinc-900"
+          style={{ backgroundColor: '#ffffff', color: '#09090b' }}
+        >
+          <header
+            className="sticky top-0 z-50 bg-white/90 backdrop-blur-md px-2 pt-2 border-b border-zinc-200"
+            style={{ backgroundColor: 'rgba(255, 255, 255, 0.9)' }}
+          >
             <div className="mx-auto flex min-h-12 w-full max-w-6xl items-center px-4 sm:px-6 lg:px-8">
               <nav className="flex flex-wrap items-center gap-x-5 gap-y-2 py-2 font-mono text-sm font-medium" aria-label="Math Archive navigation">
                 <a href={portfolioUrl} className="text-zinc-500 hover:text-zinc-900 transition-colors">Portfolio</a>
@@ -43,12 +53,14 @@ export default function RootLayout({ children }) {
               </nav>
             </div>
           </header>
-          <main className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
+          <main className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8 bg-white">
             <article className="math-article prose prose-zinc max-w-none">
               {children}
             </article>
           </main>
-          <footer className="mx-auto w-full max-w-6xl px-4 pb-10 text-center font-mono text-xs text-zinc-400 sm:px-6 lg:px-8 border-t border-zinc-100 mt-16">
+          <footer
+            className="mx-auto w-full max-w-6xl px-4 pb-10 text-center font-mono text-xs text-zinc-400 sm:px-6 lg:px-8 border-t border-zinc-100 mt-16"
+          >
             &copy; 2026 Dongwoo Lee. Back to <a href={portfolioUrl} className="text-zinc-900 hover:underline underline-offset-4">Portfolio</a>.
           </footer>
         </div>
