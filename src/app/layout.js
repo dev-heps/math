@@ -21,32 +21,35 @@ export const metadata = {
   description: "Dongwoo Lee's math archive for notes, studies, and formalizations.",
 };
 
+const isDev = process.env.NODE_ENV === 'development';
+const portfolioUrl = isDev ? 'http://localhost:3000/' : 'https://dev-heps.github.io/';
+
 export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-bg text-fg">
-        <div className="min-h-screen">
-          <header className="sticky top-0 z-50 bg-bg/80 backdrop-blur-md px-2 pt-2">
+      <body className="min-h-full bg-white text-zinc-900">
+        <div className="min-h-screen bg-white text-zinc-900">
+          <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md px-2 pt-2 border-b border-zinc-100">
             <div className="mx-auto flex min-h-12 w-full max-w-6xl items-center px-4 sm:px-6 lg:px-8">
               <nav className="flex flex-wrap items-center gap-x-5 gap-y-2 py-2 font-mono text-sm font-medium" aria-label="Math Archive navigation">
-                <a href="https://dev-heps.github.io/" className="text-muted hover:text-fg transition-colors">Portfolio</a>
-                <Link href="/" className="text-fg">Math Archive</Link>
-                <Link href="/studies" className="text-muted hover:text-fg transition-colors">Studies</Link>
-                <Link href="/formalization" className="text-muted hover:text-fg transition-colors">Formalization</Link>
-                <Link href="/models" className="text-muted hover:text-fg transition-colors">Models</Link>
+                <a href={portfolioUrl} className="text-zinc-500 hover:text-zinc-900 transition-colors">Portfolio</a>
+                <Link href="/" className="text-zinc-900 font-semibold">Math Archive</Link>
+                <Link href="/studies" className="text-zinc-500 hover:text-zinc-900 transition-colors">Studies</Link>
+                <Link href="/formalization" className="text-zinc-500 hover:text-zinc-900 transition-colors">Formalization</Link>
+                <Link href="/models" className="text-zinc-500 hover:text-zinc-900 transition-colors">Models</Link>
               </nav>
             </div>
           </header>
           <main className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
-            <article className="math-article prose prose-zinc max-w-none dark:prose-invert">
+            <article className="math-article prose prose-zinc max-w-none">
               {children}
             </article>
           </main>
-          <footer className="mx-auto w-full max-w-6xl px-4 pb-10 text-center font-mono text-xs text-muted sm:px-6 lg:px-8">
-            &copy; 2026 Dongwoo Lee. Back to <a href="https://dev-heps.github.io/" className="text-fg hover:underline underline-offset-4">Portfolio</a>.
+          <footer className="mx-auto w-full max-w-6xl px-4 pb-10 text-center font-mono text-xs text-zinc-400 sm:px-6 lg:px-8 border-t border-zinc-100 mt-16">
+            &copy; 2026 Dongwoo Lee. Back to <a href={portfolioUrl} className="text-zinc-900 hover:underline underline-offset-4">Portfolio</a>.
           </footer>
         </div>
       </body>
