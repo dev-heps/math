@@ -1,5 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import Link from "next/link";
+import MathHeaderNav from "@/components/MathHeaderNav";
 import "./globals.css";
 import "katex/dist/katex.min.css";
 
@@ -44,13 +44,7 @@ export default function RootLayout({ children }) {
             style={{ backgroundColor: 'rgba(255, 255, 255, 0.9)' }}
           >
             <div className="mx-auto flex min-h-12 w-full max-w-6xl items-center px-4 sm:px-6 lg:px-8">
-              <nav className="flex flex-wrap items-center gap-x-5 gap-y-2 py-2 font-mono text-sm font-medium" aria-label="Math Archive navigation">
-                <a href={portfolioUrl} className="text-zinc-500 hover:text-zinc-900 transition-colors">Portfolio</a>
-                <Link href="/" className="text-zinc-900 font-semibold">Math Archive</Link>
-                <Link href="/studies" className="text-zinc-500 hover:text-zinc-900 transition-colors">Studies</Link>
-                <Link href="/formalization" className="text-zinc-500 hover:text-zinc-900 transition-colors">Formalization</Link>
-                <Link href="/models" className="text-zinc-500 hover:text-zinc-900 transition-colors">Models</Link>
-              </nav>
+              <MathHeaderNav portfolioUrl={portfolioUrl} />
             </div>
           </header>
           <main className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8 bg-white">
