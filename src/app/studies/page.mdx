@@ -1,36 +1,94 @@
 export const metadata = {
-  title: 'Studies - Mathematical Foundations',
-  description: 'Structured notes on Real Analysis, Abstract Algebra, and Differential Geometry.',
+  title: 'Studies - Core Mathematical Foundations',
+  description: 'Rigorous and comprehensive study notes across Real Analysis, Measure Theory, Abstract Algebra, and Differential Topology.',
 }
 
-# Studies & Theoretical Foundations
+# Mathematical Studies & Foundations
 
-A systematic record of notes and proofs exploring fundamental mathematical structures across analysis, algebra, and geometry.
+This section forms the core theoretical backbone of the mathematical archive. It records structured study notes, rigorous proofs, and foundational theorems from undergraduate analysis to graduate-level mathematics.
 
-## Subject Areas
+---
 
-### 1. Real Analysis & Measure Theory
-- **Completeness & Metric Topologies**: Metric spaces, Cauchy sequences, Baire Category Theorem, and compactness.
-- **Lebesgue Integration**: Measure spaces $(X, \Sigma, \mu)$, measurable functions, Monotone Convergence Theorem, Dominated Convergence Theorem.
-- **$L^p$ Spaces & Duality**: Hölder and Minkowski inequalities, completeness ($L^p$ as Banach spaces), and Riesz Representation.
+## 1. Real Analysis & Measure Theory
+
+The study of rigorous limits, topologies on $\mathbb{R}^n$, abstract measure spaces, and functional integration.
+
+### A. Completeness & Metric Topologies
+- **Axiom of Completeness**: Supremum property, Dedekind cuts, and the construction of $\mathbb{R}$.
+- **Metric Space Topology**: Open/closed sets, limit points, compactness, and the **Heine-Borel Theorem**.
+- **Completeness & Baire Category**: Cauchy sequences, complete metric spaces (Banach fixed point theorem), and the Baire Category Theorem ($G_\delta$ density).
+
+### B. Lebesgue Measure & Abstract Integration
+- **Outer Measures & Carathéodory Extension**: Constructing Lebesgue measure on $\mathbb{R}^n$ via null-sets and $\sigma$-algebras $\mathcal{M}$.
+- **Measurable Functions**: Pointwise limits of measurable functions, Lusin's and Egorov's Theorems.
+- **Lebesgue Integration & Convergence Theorems**:
+  - **Monotone Convergence Theorem (MCT)**: $\lim_{n\to\infty} \int f_n = \int \lim_{n\to\infty} f_n$ for $f_n \ge 0$ monotone.
+  - **Fatou's Lemma**: $\int \liminf f_n \le \liminf \int f_n$.
+  - **Dominated Convergence Theorem (DCT)**: Pointwise convergence with an integrable dominating function $g \in L^1$.
 
 <div className="theorem-box theorem-box--def">
-  <span className="theorem-label">Definition — Lebesgue Integrability</span>
-  <p>Let $(X, \Sigma, \mu)$ be a measure space. A measurable function $f: X 	o \mathbb{R}$ is Lebesgue integrable if $\int_X |f| \, d\mu < \infty$. The space of all such functions modulo almost everywhere equivalence forms the Banach space $L^1(X, \mu)$.</p>
+  <span className="theorem-label">Definition — Abstract Measure Space</span>
+  <p>A measure space is a triple $(X, \Sigma, \mu)$ where $X$ is a set, $\Sigma \subseteq \mathcal{P}(X)$ is a $\sigma$-algebra on $X$, and $\mu: \Sigma \to [0, \infty]$ is a countably additive set function satisfying $\mu(\emptyset) = 0$.</p>
 </div>
 
-### 2. Linear & Multilinear Algebra
-- **Vector Spaces & Dimension**: Basis existence (Zorn's lemma), dual spaces $V^*$, quotient spaces $V/W$.
-- **Tensor Algebras & Exterior Calculus**: Multilinear maps, tensor product $V \otimes W$, alternating tensors, and the wedge product $\wedge$.
+### C. $L^p$ Spaces & Duality
+- **Normed Linear Spaces of Functions**: Definition of $\|f\|_p = \left(\int_X |f|^p \, d\mu\right)^{1/p}$ for $1 \le p < \infty$.
+- **Fundamental Inequalities**:
+  - **Hölder's Inequality**: $\|fg\|_1 \le \|f\|_p \|g\|_q$ where $\frac{1}{p} + \frac{1}{q} = 1$.
+  - **Minkowski's Inequality**: $\|f + g\|_p \le \|f\|_p + \|g\|_p$.
+- **Completeness**: Riesz-Fischer theorem proving $L^p$ is a complete Banach space.
+- **Riesz Representation Theorem**: Duality isomorphism $(L^p)^* \cong L^q$ for $1 < p < \infty$.
 
-### 3. Topology & Differential Manifolds
-- **Point-Set Topology**: Topological spaces, separation axioms ($T_1 \sim T_4$), Urysohn's Lemma, and Tietze Extension.
-- **Smooth Manifolds**: Charts, atlases, tangent bundles $TM$, vector fields, and differential forms $\Omega^k(M)$.
+---
+
+## 2. Linear & Multilinear Algebra
+
+The algebraic theory of linear transformations, dual spaces, tensor algebras, and canonical forms.
+
+### A. Vector Spaces & Linear Mappings
+- **Bases & Dimension**: Linear independence, spanning sets, existence of Hamel bases via Zorn's Lemma.
+- **Quotient Spaces & Exact Sequences**: $V / W$ and the first isomorphism theorem for vector spaces.
+- **Dual Spaces & Annihilators**: $V^* = \operatorname{Hom}(V, \mathbb{F})$, transpose maps $T^*$, and the canonical embedding $V \hookrightarrow V^{**}$.
+
+### B. Inner Product Spaces & Spectral Theory
+- **Hilbert Spaces**: Orthogonal projections, Gram-Schmidt orthogonalization, and Bessel's inequality.
+- **Spectral Theorem**: Diagonalization of normal and self-adjoint operators in finite and infinite dimensions.
+
+### C. Multilinear Algebra & Tensor Products
+- **Tensor Product $V \otimes W$**: Universal property of bilinear maps $\phi: V \times W \to V \otimes W$.
+- **Exterior Algebra $\bigwedge^k V$**: Alternating multilinear forms, the wedge product $v_1 \wedge \cdots \wedge v_k$, and determinant characterization.
 
 <div className="theorem-box">
-  <span className="theorem-label">Theorem — General Stokes' Theorem</span>
-  <p>Let $M$ be a compact, oriented $n$-dimensional smooth manifold with boundary $\partial M$, and let $\omega$ be a smooth $(n-1)$-form on $M$. Then:</p>
+  <span className="theorem-label">Theorem — Universal Property of Tensor Products</span>
+  <p>Let $V, W$ be vector spaces over $\mathbb{F}$. There exists a unique (up to unique isomorphism) vector space $V \otimes W$ and a bilinear map $\iota: V \times W \to V \otimes W$ such that for any bilinear map $f: V \times W \to U$, there exists a unique linear map $\tilde{f}: V \otimes W \to U$ satisfying $f = \tilde{f} \circ \iota$.</p>
+</div>
+
+---
+
+## 3. Topology & Differential Manifolds
+
+Moving from general point-set topology to differential forms and calculus on curved manifolds.
+
+### A. Point-Set Topology
+- **Topological Spaces**: Bases, subbases, product topology, and quotient topology.
+- **Separation Axioms**: Hausdorff ($T_2$), Regular ($T_3$), and Normal ($T_4$) spaces; **Urysohn's Lemma** and **Tietze Extension Theorem**.
+- **Compactness**: Tychonoff's Theorem for arbitrary products, and Alexandroff One-Point Compactification.
+
+### B. Smooth Manifolds & Tangent Bundles
+- **Smooth Manifolds**: Atlases, compatible charts $(U_\alpha, \phi_\alpha)$, smooth functions $C^\infty(M)$.
+- **Tangent Space $T_p M$**: Derivations on germs of smooth functions, tangent bundle $TM$, and pushforward $d\phi_p$.
+
+### C. Differential Forms & Stokes' Theorem
+- **Differential $k$-forms $\Omega^k(M)$**: Smooth sections of the exterior power $\bigwedge^k (T^* M)$.
+- **Exterior Derivative $d$**: The unique $\mathbb{R}$-linear operator $d: \Omega^k(M) \to \Omega^{k+1}(M)$ satisfying $d^2 = 0$ and the graded Leibniz rule.
+- **Integration & Stokes' Theorem**: Boundary orientation and generalized integration.
+
+<div className="theorem-box">
+  <span className="theorem-label">Theorem — Generalized Stokes' Theorem</span>
+  <p>Let $M$ be an oriented, compact $n$-dimensional smooth manifold with boundary $\partial M$, and let $\omega \in \Omega^{n-1}(M)$ be a smooth $(n-1)$-form with compact support. Then:</p>
   $$\int_{\partial M} \omega = \int_M d\omega$$
 </div>
+
+---
 
 [← Back to Math Archive](/math-archive/)

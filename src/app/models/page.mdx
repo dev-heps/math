@@ -1,37 +1,41 @@
 export const metadata = {
-  title: 'Models - Mathematical Biology & Applied Dynamics',
-  description: 'Mathematical modeling of nonlinear dynamical systems in healthcare and biology.',
+  title: 'Models - Template & Mathematical Biology Format',
+  description: 'Standard template for mathematical modeling, ODE/PDE formulations, and stability analysis.',
 }
 
-# Mathematical Biology & Modeling
+# Applied Models Template
 
-Applied mathematical modeling uses differential equations, dynamical systems, and stochastic processes to understand biophysical, epidemiological, and cellular phenomena.
+This page provides the **standard recording format** for applied mathematical models, nonlinear dynamical systems, and biophysical equations.
 
-## Research Themes
+---
 
-### 1. Nonlinear Population Dynamics
-Classic predator-prey systems and multi-species ecological interactions modeled via coupled nonlinear ODEs:
+## Template Structure
+
+When documenting mathematical models, follow this standard layout:
+
+### 1. Biological / Physical Context & Assumptions
+- **Phenomenon**: Brief description of the biological or physical system.
+- **State Variables**: Table of variables $\mathbf{x}(t) = [x_1(t), x_2(t), \dots]^T$ with physical dimensions.
+- **Key Assumptions**: Underlying conservation laws, mass-action kinetics, spatial homogeneity.
+
+### 2. Governing Equations
 
 $$\begin{cases}
-\dfrac{dx}{dt} = \alpha x - \beta x y \\[8pt]
-\dfrac{dy}{dt} = \delta x y - \gamma y
+\dfrac{dx_1}{dt} = f_1(x_1, x_2, \dots, x_n; \boldsymbol{\theta}) \\[6pt]
+\dfrac{dx_2}{dt} = f_2(x_1, x_2, \dots, x_n; \boldsymbol{\theta})
 \end{cases}$$
 
-- **Phase Plane Analysis**: Finding fixed points, evaluating Jacobian matrices $J(x^*, y^*)$, and classifying stability (eigenvalues $\lambda_i$).
-- **Conservation Laws**: Deriving first integrals $V(x,y)$ to prove the existence of closed orbits.
+### 3. Parameters & Dimensions
+| Symbol | Meaning | Units | Typical Range |
+| :--- | :--- | :--- | :--- |
+| $\alpha$ | Growth / Production rate | $\text{time}^{-1}$ | $0.1 - 1.0$ |
+| $\beta$ | Interaction / Clearance rate | $\text{conc}^{-1} \cdot \text{time}^{-1}$ | $0.01 - 0.5$ |
 
-### 2. Epidemic Spread & Compartmental Models
-Extending classical SIR (Susceptible-Infectious-Recovered) models with treatment dynamics and heterogeneity:
+### 4. Dynamical Analysis
+- **Fixed Points (Equilibria)**: Solutions to $\mathbf{f}(\mathbf{x}^*) = \mathbf{0}$.
+- **Jacobian Matrix**: $J_{ij} = \frac{\partial f_i}{\partial x_j}\Big|_{\mathbf{x}^*}$.
+- **Linear Stability**: Eigenvalues $\lambda_i$ of $J(\mathbf{x}^*)$ and bifurcation classification.
 
-<div className="formula-showcase">
-  <p className="formula-label">Basic Reproduction Number Threshold</p>
-  $$\mathcal{R}_0 = rac{eta}{\gamma + \mu}$$
-  <p style={{ marginTop: '0.5rem', color: '#71717a', fontSize: '0.85rem' }}>If $\mathcal{R}_0 > 1$, the disease enters an endemic state; if $\mathcal{R}_0 < 1$, the disease-free equilibrium is globally asymptotically stable.</p>
-</div>
-
-### 3. Reaction-Diffusion & Pattern Formation
-Morphogenesis and biological spatial pattern formation governed by Turing instability in reaction-diffusion systems:
-
-$$\frac{\partial \mathbf{u}}{\partial t} = \mathbf{D} \nabla^2 \mathbf{u} + \mathbf{f}(\mathbf{u})$$
+---
 
 [← Back to Math Archive](/math-archive/)

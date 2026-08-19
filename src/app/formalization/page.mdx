@@ -1,40 +1,56 @@
 export const metadata = {
-  title: 'Formalization - Lean 4 Interactive Theorem Proving',
-  description: 'Formal mathematical proofs and type theory using Lean 4.',
+  title: 'Formalization - Template & Proof Format',
+  description: 'Standard template for Lean 4 theorem formalization and type theory notes.',
 }
 
-# Formalization & Proof Verification
+# Formalization Template (Lean 4)
 
-Interactive theorem proving enables mathematics to be rigorously checked by a computer kernel. This section documents experiments and projects using **Lean 4** and its mathematical library (**Mathlib**).
+This page provides the **standard recording format** for machine-checked proofs, Lean 4 lemmas, and formal mathematical statements.
 
-## Why Formalize?
+---
 
-- **Unambiguous Precision**: Every definition, hypothesis, and inference step is strictly typed.
-- **Elimination of Gaps**: Subtleties that are easily overlooked in informal proofs must be fully verified.
-- **Constructive & Dependent Type Theory**: Exploring the deep correspondence between computer programs and mathematical proofs (Curry-Howard isomorphism).
+## Template Structure
 
-## Lean 4 Proof Structure
+When documenting formalizations, use the following layout:
 
-In Lean 4, mathematical propositions are types, and proofs are terms inhabiting those types.
+### 1. Statement & Motivation
+- **Mathematical Statement**: Pen-and-paper formulation.
+- **Target Invariant**: Specific property or bound being formalized.
+- **Mathlib Imports**: Required module dependencies.
+
+### 2. Formalization Code Template
 
 ```lean
 import Mathlib.Data.Real.Basic
+import Mathlib.Topology.MetricSpace.Basic
 import Mathlib.Tactic
 
--- Example: Verifying the sum of first n natural numbers
-theorem sum_first_n (n : ℕ) :
-    2 * (List.range (n + 1)).sum = n * (n + 1) := by
-  induction n with
-  | zero => simp
-  | succ n ih =>
-    rw [List.sum_range_succ, mul_add, ih]
-    ring
+/-!
+# Note Title: [Topic / Lemma Name]
+Author: Dongwoo Lee
+Status: [In Progress / Verified]
+-/
+
+namespace MathArchive.Template
+
+/-- Definition of the target concept -/
+def TargetConcept (X : Type*) [MetricSpace X] (s : Set X) : Prop :=
+  IsOpen s ∧ IsCompact s
+
+/-- Formal Statement: [Theorem Description] -/
+theorem target_theorem {X : Type*} [MetricSpace X] (s : Set X)
+    (h : TargetConcept X s) : s = ∅ ∨ (univ : Set X) = s := by
+  -- Proof skeleton
+  sorry
+
+end MathArchive.Template
 ```
 
-## Ongoing Formalization Projects
+### 3. Proof Strategy & Invariants
+- **Induction Basis**: Base case or hypothesis setup.
+- **Key Tactics**: `simp`, `rw`, `apply`, `linarith`, `ring`.
+- **Open Sorries / Edge Cases**: Unresolved goals or Mathlib dependency gaps.
 
-1. **Topology & Metric Foundations**: Formalizing metric equivalence and compactness criteria.
-2. **Dynamical Systems Stability**: Encoding Lyapunov function definitions and invariant set theorems.
-3. **Discrete Structures**: Graph connectivity and formal logic invariants.
+---
 
 [← Back to Math Archive](/math-archive/)
