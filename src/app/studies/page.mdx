@@ -1,91 +1,84 @@
 export const metadata = {
-  title: 'Studies - Core Mathematical Foundations',
-  description: 'Rigorous and comprehensive study notes across Real Analysis, Measure Theory, Abstract Algebra, and Differential Topology.',
+  title: 'Studies & Seminars - Math Archive',
+  description: 'Mathematical study tracks and seminar notes conducted in the 수학의 즐거움 (Enjoying Math) community.',
 }
 
-# Mathematical Studies & Foundations
+# Studies & Mathematical Seminars
 
-This section forms the core theoretical backbone of the mathematical archive. It records structured study notes, rigorous proofs, and foundational theorems from undergraduate analysis to graduate-level mathematics.
-
----
-
-## 1. Real Analysis & Measure Theory
-
-The study of rigorous limits, topologies on $\mathbb{R}^n$, abstract measure spaces, and functional integration.
-
-### A. Completeness & Metric Topologies
-- **Axiom of Completeness**: Supremum property, Dedekind cuts, and the construction of $\mathbb{R}$.
-- **Metric Space Topology**: Open/closed sets, limit points, compactness, and the **Heine-Borel Theorem**.
-- **Completeness & Baire Category**: Cauchy sequences, complete metric spaces (Banach fixed point theorem), and the Baire Category Theorem ($G_\delta$ density).
-
-### B. Lebesgue Measure & Abstract Integration
-- **Outer Measures & Carathéodory Extension**: Constructing Lebesgue measure on $\mathbb{R}^n$ via null-sets and $\sigma$-algebras $\mathcal{M}$.
-- **Measurable Functions**: Pointwise limits of measurable functions, Lusin's and Egorov's Theorems.
-- **Lebesgue Integration & Convergence Theorems**:
-  - **Monotone Convergence Theorem (MCT)**: $\lim_{n\to\infty} \int f_n = \int \lim_{n\to\infty} f_n$ for $f_n \ge 0$ monotone.
-  - **Fatou's Lemma**: $\int \liminf f_n \le \liminf \int f_n$.
-  - **Dominated Convergence Theorem (DCT)**: Pointwise convergence with an integrable dominating function $g \in L^1$.
+This section records active seminar notes, foundational proofs, and structured study tracks conducted primarily within the **수학의 즐거움 (Enjoying Math)** research and study community.
 
 <div className="theorem-box theorem-box--def">
-  <span className="theorem-label">Definition — Abstract Measure Space</span>
-  <p>A measure space is a triple $(X, \Sigma, \mu)$ where $X$ is a set, $\Sigma \subseteq \mathcal{P}(X)$ is a $\sigma$-algebra on $X$, and $\mu: \Sigma \to [0, \infty]$ is a countably additive set function satisfying $\mu(\emptyset) = 0$.</p>
-</div>
-
-### C. $L^p$ Spaces & Duality
-- **Normed Linear Spaces of Functions**: Definition of $\|f\|_p = \left(\int_X |f|^p \, d\mu\right)^{1/p}$ for $1 \le p < \infty$.
-- **Fundamental Inequalities**:
-  - **Hölder's Inequality**: $\|fg\|_1 \le \|f\|_p \|g\|_q$ where $\frac{1}{p} + \frac{1}{q} = 1$.
-  - **Minkowski's Inequality**: $\|f + g\|_p \le \|f\|_p + \|g\|_p$.
-- **Completeness**: Riesz-Fischer theorem proving $L^p$ is a complete Banach space.
-- **Riesz Representation Theorem**: Duality isomorphism $(L^p)^* \cong L^q$ for $1 < p < \infty$.
-
----
-
-## 2. Linear & Multilinear Algebra
-
-The algebraic theory of linear transformations, dual spaces, tensor algebras, and canonical forms.
-
-### A. Vector Spaces & Linear Mappings
-- **Bases & Dimension**: Linear independence, spanning sets, existence of Hamel bases via Zorn's Lemma.
-- **Quotient Spaces & Exact Sequences**: $V / W$ and the first isomorphism theorem for vector spaces.
-- **Dual Spaces & Annihilators**: $V^* = \operatorname{Hom}(V, \mathbb{F})$, transpose maps $T^*$, and the canonical embedding $V \hookrightarrow V^{**}$.
-
-### B. Inner Product Spaces & Spectral Theory
-- **Hilbert Spaces**: Orthogonal projections, Gram-Schmidt orthogonalization, and Bessel's inequality.
-- **Spectral Theorem**: Diagonalization of normal and self-adjoint operators in finite and infinite dimensions.
-
-### C. Multilinear Algebra & Tensor Products
-- **Tensor Product $V \otimes W$**: Universal property of bilinear maps $\phi: V \times W \to V \otimes W$.
-- **Exterior Algebra $\bigwedge^k V$**: Alternating multilinear forms, the wedge product $v_1 \wedge \cdots \wedge v_k$, and determinant characterization.
-
-<div className="theorem-box">
-  <span className="theorem-label">Theorem — Universal Property of Tensor Products</span>
-  <p>Let $V, W$ be vector spaces over $\mathbb{F}$. There exists a unique (up to unique isomorphism) vector space $V \otimes W$ and a bilinear map $\iota: V \times W \to V \otimes W$ such that for any bilinear map $f: V \times W \to U$, there exists a unique linear map $\tilde{f}: V \otimes W \to U$ satisfying $f = \tilde{f} \circ \iota$.</p>
+  <span className="theorem-label">Community & Study Philosophy — 수학의 즐거움</span>
+  <p>단순한 지식 습득이나 공식 암기를 넘어, <strong>명제를 엄밀하게 적고 참/거짓을 분별하며 수학적 구조(Structure)와 대상 간의 관계(Relation)를 통찰</strong>하는 훈련을 지향합니다. 학부 기초부터 대학원 수준의 순수/응용 수학까지 깊이 있게 탐구합니다.</p>
 </div>
 
 ---
 
-## 3. Topology & Differential Manifolds
+## 🏛️ Active Study Cohorts (진행 중인 스터디)
 
-Moving from general point-set topology to differential forms and calculus on curved manifolds.
+<div className="math-grid">
+  <div className="math-card">
+    <span className="math-card-eyebrow">Graduate Track · 7기</span>
+    <span className="math-card-title">기초부터 시작하는 대학원 수학</span>
+    <span className="math-card-desc">
+      집합론을 출발점으로 해석개론, 위상수학, 선형대수학, 추상대수학, 다변수해석학, 측도론으로 이어지는 대학원 수학 필수 기초 체력 연마.
+    </span>
+  </div>
 
-### A. Point-Set Topology
-- **Topological Spaces**: Bases, subbases, product topology, and quotient topology.
-- **Separation Axioms**: Hausdorff ($T_2$), Regular ($T_3$), and Normal ($T_4$) spaces; **Urysohn's Lemma** and **Tietze Extension Theorem**.
-- **Compactness**: Tychonoff's Theorem for arbitrary products, and Alexandroff One-Point Compactification.
+  <div className="math-card">
+    <span className="math-card-eyebrow">Analysis Track · 2기</span>
+    <span className="math-card-title">일변수 미적분학 스터디</span>
+    <span className="math-card-desc">
+      실수계의 완비성 공리, $\epsilon$-$\delta$ 논법, 수열의 극한, 미적분학의 기본정리(FTC)에 대한 엄밀한 해석학적 증명 훈련.
+    </span>
+  </div>
 
-### B. Smooth Manifolds & Tangent Bundles
-- **Smooth Manifolds**: Atlases, compatible charts $(U_\alpha, \phi_\alpha)$, smooth functions $C^\infty(M)$.
-- **Tangent Space $T_p M$**: Derivations on germs of smooth functions, tangent bundle $TM$, and pushforward $d\phi_p$.
+  <div className="math-card">
+    <span className="math-card-eyebrow">Foundations Track · 3기</span>
+    <span className="math-card-title">증명 기초 수학</span>
+    <span className="math-card-desc">
+      명제의 참·거짓 분별, 수량자($\forall, \exists$)와 임의의 원소 고정 시 의존성 인지, 동치관계(Relation)와 몫집합(Quotient Set)의 대수적·위상적 구조 탐구.
+    </span>
+  </div>
 
-### C. Differential Forms & Stokes' Theorem
-- **Differential $k$-forms $\Omega^k(M)$**: Smooth sections of the exterior power $\bigwedge^k (T^* M)$.
-- **Exterior Derivative $d$**: The unique $\mathbb{R}$-linear operator $d: \Omega^k(M) \to \Omega^{k+1}(M)$ satisfying $d^2 = 0$ and the graded Leibniz rule.
-- **Integration & Stokes' Theorem**: Boundary orientation and generalized integration.
+  <div className="math-card">
+    <span className="math-card-eyebrow">Quantum Math Track</span>
+    <span className="math-card-title">양자컴퓨팅 수학</span>
+    <span className="math-card-desc">
+      복소 힐베르트 공간($\mathcal{H}$), 유니타리 연산자, 텐서곱 공간($\mathcal{H}_A \otimes \mathcal{H}_B$), 프로젝션 측정 및 양자 알고리즘의 수리적 기초.
+    </span>
+  </div>
+
+  <div className="math-card">
+    <span className="math-card-eyebrow">Seminar Track · 4.5기 (발췌반)</span>
+    <span className="math-card-title">직장인과 문과생들을 위한 수학</span>
+    <span className="math-card-desc">
+      수학적 세계관과 추상적 사고방식의 직관화, 핵심 명제를 깊이 있게 감상하고 엄밀함과 직관의 균형을 체화하는 발췌 세미나.
+    </span>
+  </div>
+</div>
+
+---
+
+## 📚 Core Theoretical Reference (세부 과목별 이론 로드맵)
+
+### 1. Real Analysis & Measure Theory (실해석학 & 측도론)
+- **완비성과 거리위상**: 실수의 완비성 공리(Axiom of Completeness), 콤팩트성과 하이네-보렐 정리(Heine-Borel), 베르 범주 정리(Baire Category Theorem).
+- **르벡 측도 & 추상 적분론**: 외측도(Outer measure)와 카라테오도리 확장, 가측함수, 단조수렴정리(MCT), 르벡 지배수렴정리(DCT).
+- **$L^p$ 함수공간 & 쌍대성**: 횔더(Hölder) 및 민코프스키(Minkowski) 부등식, $L^p$ 완비성(Riesz-Fischer), 리스 표현정리($(L^p)^* \cong L^q$).
+
+### 2. Linear & Multilinear Algebra (선형 및 다중선형대수학)
+- **벡터공간과 기저**: 조른의 보조정리(Zorn's Lemma)와 하멜 기저(Hamel Basis)의 존재성, 몫공간($V/W$)과 제1동형정리.
+- **쌍대공간 & 텐서곱**: 쌍대공간($V^*$), 소멸자(Annihilator), 텐서곱($V \otimes W$)의 보편성(Universal Property), 외대수($\bigwedge^k V$)와 쐐기곱($\wedge$).
+- **스펙트럼 정리**: 힐베르트 공간 위 정규작용소 및 자기수반작용소의 대각화.
+
+### 3. Topology & Differential Manifolds (위상수학 & 미분다양체)
+- **점-집합 위상수학**: 분리공리($T_1 \sim T_4$), 우리손의 보조정리(Urysohn's Lemma), 티체 확장정리, 티호노프의 곱위상 콤팩트성 정리.
+- **미분다양체와 미분형식**: 좌표차트와 아틀라스, 접공간($T_p M$), 미분형식공간($\Omega^k(M)$)과 외미분연산자($d$).
+- **일반화된 스토크스 정리**: 유향 다양체 위에서의 적분과 미분기하학적 기본정리:
 
 <div className="theorem-box">
-  <span className="theorem-label">Theorem — Generalized Stokes' Theorem</span>
-  <p>Let $M$ be an oriented, compact $n$-dimensional smooth manifold with boundary $\partial M$, and let $\omega \in \Omega^{n-1}(M)$ be a smooth $(n-1)$-form with compact support. Then:</p>
+  <span className="theorem-label">Theorem — General Stokes' Theorem</span>
   $$\int_{\partial M} \omega = \int_M d\omega$$
 </div>
 
