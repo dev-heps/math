@@ -1,17 +1,40 @@
 export const metadata = {
-  title: 'Formalization',
+  title: 'Formalization - Lean 4 Interactive Theorem Proving',
+  description: 'Formal mathematical proofs and type theory using Lean 4.',
 }
 
-# Formalization
+# Formalization & Proof Verification
 
-Lean 4 and proof formalization records will live here.
+Interactive theorem proving enables mathematics to be rigorously checked by a computer kernel. This section documents experiments and projects using **Lean 4** and its mathematical library (**Mathlib**).
 
-## Planned Notes
+## Why Formalize?
 
-- Lean 4 theorem statements
-- Definitions and lemmas
-- Proof translation notes
-- Links between informal proofs and formal artifacts
+- **Unambiguous Precision**: Every definition, hypothesis, and inference step is strictly typed.
+- **Elimination of Gaps**: Subtleties that are easily overlooked in informal proofs must be fully verified.
+- **Constructive & Dependent Type Theory**: Exploring the deep correspondence between computer programs and mathematical proofs (Curry-Howard isomorphism).
 
-[Back to Math Archive](/math-archive/)
+## Lean 4 Proof Structure
 
+In Lean 4, mathematical propositions are types, and proofs are terms inhabiting those types.
+
+```lean
+import Mathlib.Data.Real.Basic
+import Mathlib.Tactic
+
+-- Example: Verifying the sum of first n natural numbers
+theorem sum_first_n (n : ℕ) :
+    2 * (List.range (n + 1)).sum = n * (n + 1) := by
+  induction n with
+  | zero => simp
+  | succ n ih =>
+    rw [List.sum_range_succ, mul_add, ih]
+    ring
+```
+
+## Ongoing Formalization Projects
+
+1. **Topology & Metric Foundations**: Formalizing metric equivalence and compactness criteria.
+2. **Dynamical Systems Stability**: Encoding Lyapunov function definitions and invariant set theorems.
+3. **Discrete Structures**: Graph connectivity and formal logic invariants.
+
+[← Back to Math Archive](/math-archive/)

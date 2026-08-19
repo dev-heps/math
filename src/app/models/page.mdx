@@ -1,17 +1,37 @@
 export const metadata = {
-  title: 'Models',
+  title: 'Models - Mathematical Biology & Applied Dynamics',
+  description: 'Mathematical modeling of nonlinear dynamical systems in healthcare and biology.',
 }
 
-# Models
+# Mathematical Biology & Modeling
 
-Applied mathematical models, especially for biological and healthcare systems.
+Applied mathematical modeling uses differential equations, dynamical systems, and stochastic processes to understand biophysical, epidemiological, and cellular phenomena.
 
-## Planned Notes
+## Research Themes
 
-- ODE and PDE model sketches
-- Parameter interpretation
-- Simulation assumptions
-- Links to project implementations
+### 1. Nonlinear Population Dynamics
+Classic predator-prey systems and multi-species ecological interactions modeled via coupled nonlinear ODEs:
 
-[Back to Math Archive](/math-archive/)
+$$\begin{cases}
+\dfrac{dx}{dt} = \alpha x - \beta x y \\[8pt]
+\dfrac{dy}{dt} = \delta x y - \gamma y
+\end{cases}$$
 
+- **Phase Plane Analysis**: Finding fixed points, evaluating Jacobian matrices $J(x^*, y^*)$, and classifying stability (eigenvalues $\lambda_i$).
+- **Conservation Laws**: Deriving first integrals $V(x,y)$ to prove the existence of closed orbits.
+
+### 2. Epidemic Spread & Compartmental Models
+Extending classical SIR (Susceptible-Infectious-Recovered) models with treatment dynamics and heterogeneity:
+
+<div className="formula-showcase">
+  <p className="formula-label">Basic Reproduction Number Threshold</p>
+  $$\mathcal{R}_0 = rac{eta}{\gamma + \mu}$$
+  <p style={{ marginTop: '0.5rem', color: '#71717a', fontSize: '0.85rem' }}>If $\mathcal{R}_0 > 1$, the disease enters an endemic state; if $\mathcal{R}_0 < 1$, the disease-free equilibrium is globally asymptotically stable.</p>
+</div>
+
+### 3. Reaction-Diffusion & Pattern Formation
+Morphogenesis and biological spatial pattern formation governed by Turing instability in reaction-diffusion systems:
+
+$$\frac{\partial \mathbf{u}}{\partial t} = \mathbf{D} \nabla^2 \mathbf{u} + \mathbf{f}(\mathbf{u})$$
+
+[← Back to Math Archive](/math-archive/)

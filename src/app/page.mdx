@@ -1,29 +1,39 @@
 export const metadata = {
-  title: 'Math Archive',
+  title: 'Math Archive - Dongwoo Lee',
+  description: 'Mathematical foundations, Lean 4 formalizations, and biological modeling.',
 }
 
-# Math Archive
+# Mathematical Archive
 
-This archive collects math notes, worked examples, formalization records, and model-building sketches.
+This repository serves as a dedicated notebook and working archive for **pure mathematics, formal theorem verification (Lean 4), and applied mathematical biology**.
 
-## Sections
+<div className="math-grid">
+  <a className="math-card" href="/math-archive/studies/">
+    <span className="math-card-eyebrow">Foundations</span>
+    <span className="math-card-title">📐 Studies</span>
+    <span className="math-card-desc">Core mathematical explorations across Real Analysis, Measure Theory, Linear Algebra, and Topology.</span>
+  </a>
+  <a className="math-card" href="/math-archive/formalization/">
+    <span className="math-card-eyebrow">Theorem Proving</span>
+    <span className="math-card-title">⚙️ Formalization</span>
+    <span className="math-card-desc">Machine-checked mathematical proofs, type theory notes, and formalization projects in Lean 4.</span>
+  </a>
+  <a className="math-card" href="/math-archive/models/">
+    <span className="math-card-eyebrow">Applied Sciences</span>
+    <span className="math-card-title">🧬 Models</span>
+    <span className="math-card-desc">Nonlinear dynamical systems, ODE/PDE models, and biophysical systems in digital healthcare.</span>
+  </a>
+</div>
 
-- [Studies](/math-archive/studies/) - study notes for core mathematical topics.
-- [Formalization](/math-archive/formalization/) - Lean 4 and proof formalization records.
-- [Models](/math-archive/models/) - mathematical biology and applied modeling notes.
+## Theoretical Focus
 
-## Sample Equations
+Mathematics provides the language and rigorous foundation for modeling complex living and quantum systems. The explorations here center on:
 
-Inline equation: $e^{i\pi} + 1 = 0$.
+1. **Rigorous Analysis**: Moving from point-set topology to abstract measure theory, function spaces ($L^p, H^s$), and differential forms on manifolds.
+2. **Computational Logic & Verification**: Translating classical pen-and-paper proofs into constructive and dependent type theory using **Lean 4**.
+3. **Continuous & Discrete Dynamics**: Investigating stability, bifurcations, and emergent patterns in biological networks.
 
-Navier-Stokes equation:
-
-$$
-\rho \left( \frac{\partial \mathbf{v}}{\partial t} + \mathbf{v} \cdot \nabla \mathbf{v} \right) = -\nabla p + \mu \nabla^2 \mathbf{v} + \mathbf{f}
-$$
-
-Time-dependent Schrodinger equation:
-
-$$
-i\hbar \frac{\partial}{\partial t} \Psi(\mathbf{r},t) = \left [ \frac{-\hbar^2}{2m}\nabla^2 + V(\mathbf{r},t)\right ] \Psi(\mathbf{r},t)
-$$
+<div className="formula-showcase">
+  <p className="formula-label">The Fundamental Theorem of Calculus on Manifolds (Stokes' Theorem)</p>
+  $$\int_{\partial \Omega} \omega = \int_{\Omega} d\omega$$
+</div>

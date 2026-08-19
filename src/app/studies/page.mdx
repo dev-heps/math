@@ -1,31 +1,36 @@
 export const metadata = {
-  title: 'Studies',
+  title: 'Studies - Mathematical Foundations',
+  description: 'Structured notes on Real Analysis, Abstract Algebra, and Differential Geometry.',
 }
 
-# Studies
+# Studies & Theoretical Foundations
 
-Study notes for core mathematical topics.
+A systematic record of notes and proofs exploring fundamental mathematical structures across analysis, algebra, and geometry.
 
-## Study Pages
+## Subject Areas
 
-<div className="study-grid">
-  <a className="study-card" href="/math-archive/studies/kds/">
-    <strong>Basics to Grad Math (KDS)</strong>
-    <span>기초부터 대학원 수학까지 프로그램 설명과 강의 링크 색인.</span>
-  </a>
-  <a className="study-card" href="/math-archive/studies/jgs/">
-    <strong>증명 기초수업 (JGS)</strong>
-    <span>증명 기초수업 강의 링크 색인.</span>
-  </a>
+### 1. Real Analysis & Measure Theory
+- **Completeness & Metric Topologies**: Metric spaces, Cauchy sequences, Baire Category Theorem, and compactness.
+- **Lebesgue Integration**: Measure spaces $(X, \Sigma, \mu)$, measurable functions, Monotone Convergence Theorem, Dominated Convergence Theorem.
+- **$L^p$ Spaces & Duality**: Hölder and Minkowski inequalities, completeness ($L^p$ as Banach spaces), and Riesz Representation.
+
+<div className="theorem-box theorem-box--def">
+  <span className="theorem-label">Definition — Lebesgue Integrability</span>
+  <p>Let $(X, \Sigma, \mu)$ be a measure space. A measurable function $f: X 	o \mathbb{R}$ is Lebesgue integrable if $\int_X |f| \, d\mu < \infty$. The space of all such functions modulo almost everywhere equivalence forms the Banach space $L^1(X, \mu)$.</p>
 </div>
 
-## Planned Topics
+### 2. Linear & Multilinear Algebra
+- **Vector Spaces & Dimension**: Basis existence (Zorn's lemma), dual spaces $V^*$, quotient spaces $V/W$.
+- **Tensor Algebras & Exterior Calculus**: Multilinear maps, tensor product $V \otimes W$, alternating tensors, and the wedge product $\wedge$.
 
-- Analysis
-- Linear algebra
-- Probability
-- Differential equations
-- Numerical methods
+### 3. Topology & Differential Manifolds
+- **Point-Set Topology**: Topological spaces, separation axioms ($T_1 \sim T_4$), Urysohn's Lemma, and Tietze Extension.
+- **Smooth Manifolds**: Charts, atlases, tangent bundles $TM$, vector fields, and differential forms $\Omega^k(M)$.
 
-[Back to Math Archive](/math-archive/)
+<div className="theorem-box">
+  <span className="theorem-label">Theorem — General Stokes' Theorem</span>
+  <p>Let $M$ be a compact, oriented $n$-dimensional smooth manifold with boundary $\partial M$, and let $\omega$ be a smooth $(n-1)$-form on $M$. Then:</p>
+  $$\int_{\partial M} \omega = \int_M d\omega$$
+</div>
 
+[← Back to Math Archive](/math-archive/)

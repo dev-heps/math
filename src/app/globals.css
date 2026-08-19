@@ -10,7 +10,7 @@
   --color-border: rgba(0, 0, 0, 0.15);
   --color-card: rgba(0, 0, 0, 0.02);
   --color-card-hover: rgba(0, 0, 0, 0.04);
-  --color-accent: #3b82f6;
+  --color-accent: #2563eb;
   --bg: #ffffff;
   --fg: #09090b;
 }
@@ -23,7 +23,7 @@
   --color-border: rgba(0, 0, 0, 0.15);
   --color-card: rgba(0, 0, 0, 0.02);
   --color-card-hover: rgba(0, 0, 0, 0.04);
-  --color-accent: #3b82f6;
+  --color-accent: #2563eb;
 
   --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-geist-mono), 'IBM Plex Mono', ui-monospace, monospace;
@@ -44,242 +44,199 @@ html, body {
 }
 
 ::selection {
-  background-color: rgba(59, 130, 246, 0.2);
+  background-color: rgba(37, 99, 235, 0.15);
   color: #000;
 }
 
-/* Article surface */
+/* ── Article surface ── */
 .math-article {
-  --article-measure: 72ch;
+  --article-measure: 76ch;
   color: #09090b;
+  line-height: 1.75;
 }
 
 .math-article > :where(h1, h2, h3, h4, p, ul, ol, blockquote) {
   max-width: var(--article-measure);
 }
 
-.math-article > :where(.wide-content, .study-grid, .kds-hero, .lecture-index) {
+.math-article > :where(.wide-content, .math-grid, .theorem-box, .formula-card) {
   max-width: none;
 }
 
 .math-article h1 {
-  font-size: 2.5rem;
+  font-size: 2.25rem;
+  font-weight: 700;
   line-height: 1.15;
-  letter-spacing: 0;
+  letter-spacing: -0.02em;
   color: #09090b;
+  margin-bottom: 1.5rem;
 }
 
 .math-article h2 {
-  letter-spacing: 0;
+  font-size: 1.5rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
   color: #09090b;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-edge);
 }
 
 .math-article h3 {
-  letter-spacing: 0;
-  color: #09090b;
-}
-
-.math-article a {
-  color: inherit;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #18181b;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .math-article p {
   color: #27272a;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
-/* Study card grid */
-.study-grid {
+.math-article a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--color-edge);
+  transition: text-decoration-color 0.2s;
+}
+
+.math-article a:hover {
+  text-decoration-color: var(--color-accent);
+}
+
+/* ── Math Grid ── */
+.math-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: 1.25rem;
   margin-top: 1.5rem;
   margin-bottom: 2.5rem;
 }
 
-.study-card {
-  display: block;
+.math-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
   border: 1px solid var(--color-edge);
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   background: var(--color-card);
-  padding: 1rem;
-  color: inherit;
-  text-decoration: none;
-  transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+  text-decoration: none !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.study-card:hover {
+.math-card:hover {
   border-color: var(--color-border);
   background: var(--color-card-hover);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
-.study-card strong {
-  display: block;
-  color: var(--color-fg);
-  font-size: 1rem;
-  font-weight: 650;
-}
-
-.study-card span {
-  display: block;
-  margin-top: 0.5rem;
-  color: var(--color-muted);
-  font-size: 0.9rem;
-  line-height: 1.6;
-}
-
-/* KiDaeSu lecture index */
-.kds-hero {
-  border-bottom: 1px solid var(--color-edge);
-  margin-bottom: 2rem;
-  padding-bottom: 1.25rem;
-}
-
-.kds-hero p {
-  max-width: var(--article-measure);
-}
-
-.kds-meta {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
-  gap: 0.75rem;
-  margin-top: 1.5rem;
-}
-
-.kds-meta-item {
-  border: 1px solid var(--color-edge);
-  border-radius: 0.5rem;
-  background: var(--color-card);
-  padding: 0.85rem 1rem;
-}
-
-.kds-meta-item span {
-  display: block;
-  color: var(--color-muted);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-}
-
-.kds-meta-item strong {
-  display: block;
-  margin-top: 0.35rem;
-  color: var(--color-fg);
-  font-size: 1rem;
-  font-weight: 650;
-}
-
-.lecture-index {
-  border: 1px solid var(--color-edge);
-  border-radius: 0.5rem;
-  background: #ffffff;
-  overflow: hidden;
-}
-
-.lecture-index__bar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.75rem;
-  border-bottom: 1px solid var(--color-edge);
-  background: var(--color-card);
-  padding: 0.9rem 1rem;
-}
-
-.lecture-index__bar strong {
-  font-size: 1rem;
-  font-weight: 650;
-}
-
-.lecture-index__bar span {
-  color: var(--color-muted);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-}
-
-.lecture-index__header,
-.lecture-index__row {
-  display: grid;
-  grid-template-columns: 5rem minmax(0, 1fr) 5.5rem;
-  gap: 1rem;
-  align-items: baseline;
-  padding: 0.75rem 1rem;
-}
-
-.lecture-index__header {
-  border-bottom: 1px solid var(--color-edge);
-  color: var(--color-muted);
+.math-card-eyebrow {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
-}
-
-.lecture-index__row {
-  border-bottom: 1px solid var(--color-edge);
-}
-
-.lecture-index__row:nth-child(even) {
-  background: var(--color-card);
-}
-
-.lecture-index__row:last-child {
-  border-bottom: 0;
-}
-
-.lecture-index__id {
   color: var(--color-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.math-card-title {
+  font-size: 1.15rem;
+  font-weight: 650;
+  color: #09090b;
+  margin-bottom: 0.5rem;
+}
+
+.math-card-desc {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+/* ── Mathematical Callout Boxes ── */
+.theorem-box {
+  margin: 1.5rem 0;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--color-edge);
+  border-left: 3px solid var(--color-accent);
+  border-radius: 0.5rem;
+  background: #fbfbfc;
+}
+
+.theorem-box--def {
+  border-left-color: #059669;
+}
+
+.theorem-box--proof {
+  border-left-color: #64748b;
+  background: #fafafa;
+  font-size: 0.95rem;
+}
+
+.theorem-label {
+  display: inline-block;
   font-family: var(--font-mono);
   font-size: 0.8rem;
-}
-
-.lecture-index__title {
-  color: var(--color-fg);
-  line-height: 1.65;
-  word-break: keep-all;
-  overflow-wrap: anywhere;
-}
-
-.lecture-index__link {
-  justify-self: start;
-  border: 1px solid var(--color-edge);
-  border-radius: 999px;
-  padding: 0.28rem 0.7rem;
-  color: var(--color-fg);
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  font-weight: 600;
-  line-height: 1.2;
-  text-decoration: none;
-}
-
-.lecture-index__link:hover {
-  border-color: var(--color-accent);
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   color: var(--color-accent);
+  margin-bottom: 0.5rem;
 }
 
-@media (max-width: 640px) {
-  .math-article h1 {
-    font-size: 2rem;
-  }
-
-  .lecture-index__header {
-    display: none;
-  }
-
-  .lecture-index__row {
-    grid-template-columns: 4.25rem minmax(0, 1fr);
-    gap: 0.35rem 0.75rem;
-    padding: 0.85rem 0.9rem;
-  }
-
-  .lecture-index__link {
-    grid-column: 2;
-  }
+.theorem-box--def .theorem-label {
+  color: #059669;
 }
 
-/* ── Scrollbar ── */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--color-bg); }
-::-webkit-scrollbar-thumb { background: #d4d4d8; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #a1a1aa; }
+.theorem-box--proof .theorem-label {
+  color: #64748b;
+}
+
+/* ── Formula showcase ── */
+.formula-showcase {
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  border: 1px solid var(--color-edge);
+  border-radius: 0.75rem;
+  background: #ffffff;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+
+.formula-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 0.75rem;
+}
+
+/* ── Code / Lean 4 Blocks ── */
+.math-article pre {
+  padding: 1.25rem;
+  background: #f8fafc;
+  border: 1px solid var(--color-edge);
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.math-article code {
+  font-family: var(--font-mono);
+}
+
+/* ── KaTeX fine tuning ── */
+.katex-display {
+  margin: 1.25rem 0 !important;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.25rem 0;
+}
