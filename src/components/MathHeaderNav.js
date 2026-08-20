@@ -8,9 +8,6 @@ export default function MathHeaderNav({ portfolioUrl }) {
 
   const navItems = [
     { label: 'Math Archive', href: '/', key: 'home' },
-    { label: 'Studies', href: '/studies', key: 'studies' },
-    { label: 'Formalization', href: '/formalization', key: 'formalization' },
-    { label: 'Models', href: '/models', key: 'models' },
   ]
 
   const isActive = (itemHref) => {

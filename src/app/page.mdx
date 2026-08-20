@@ -1,39 +1,23 @@
 export const metadata = {
   title: 'Math Archive - Dongwoo Lee',
-  description: 'Mathematical foundations, Lean 4 formalizations, and biological modeling.',
+  description: 'Mathematical notebook and study archive.',
 }
 
 # Mathematical Archive
 
-This repository serves as a dedicated notebook and working archive for **pure mathematics, formal theorem verification (Lean 4), and applied mathematical biology**.
+This repository serves as a personal notebook and working archive for mathematics, formal verification, and computational theory.
 
-<div className="math-grid">
-  <a className="math-card" href="/math-archive/studies/">
-    <span className="math-card-eyebrow">Foundations</span>
-    <span className="math-card-title">📐 Studies</span>
-    <span className="math-card-desc">Core mathematical explorations across Real Analysis, Measure Theory, Linear Algebra, and Topology.</span>
-  </a>
-  <a className="math-card" href="/math-archive/formalization/">
-    <span className="math-card-eyebrow">Theorem Proving</span>
-    <span className="math-card-title">⚙️ Formalization</span>
-    <span className="math-card-desc">Machine-checked mathematical proofs, type theory notes, and formalization projects in Lean 4.</span>
-  </a>
-  <a className="math-card" href="/math-archive/models/">
-    <span className="math-card-eyebrow">Applied Sciences</span>
-    <span className="math-card-title">🧬 Models</span>
-    <span className="math-card-desc">Nonlinear dynamical systems, ODE/PDE models, and biophysical systems in digital healthcare.</span>
-  </a>
-</div>
+---
 
-## Theoretical Focus
+## Getting Started
 
-Mathematics provides the language and rigorous foundation for modeling complex living and quantum systems. The explorations here center on:
+Start documenting theorems, proofs, and mathematical ideas directly using Markdown and LaTeX:
 
-1. **Rigorous Analysis**: Moving from point-set topology to abstract measure theory, function spaces ($L^p, H^s$), and differential forms on manifolds.
-2. **Computational Logic & Verification**: Translating classical pen-and-paper proofs into constructive and dependent type theory using **Lean 4**.
-3. **Continuous & Discrete Dynamics**: Investigating stability, bifurcations, and emergent patterns in biological networks.
+$$\int_{\partial \Omega} \omega = \int_{\Omega} d\omega$$
 
-<div className="formula-showcase">
-  <p className="formula-label">The Fundamental Theorem of Calculus on Manifolds (Stokes' Theorem)</p>
-  $$\int_{\partial \Omega} \omega = \int_{\Omega} d\omega$$
-</div>
+Where $\Omega$ is an oriented manifold with boundary $\partial \Omega$, and $\omega$ is a differential $(k-1)$-form.
+
+---
+
+> [!NOTE]
+> Create new `.mdx` pages in `src/app/` to structure your archive topics.
