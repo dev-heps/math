@@ -29,19 +29,11 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-      style={{ backgroundColor: '#ffffff', color: '#09090b', colorScheme: 'light' }}
     >
-      <body
-        className="min-h-full bg-white text-zinc-900"
-        style={{ backgroundColor: '#ffffff', color: '#09090b', colorScheme: 'light' }}
-      >
-        <div
-          className="min-h-screen bg-white text-zinc-900"
-          style={{ backgroundColor: '#ffffff', color: '#09090b' }}
-        >
+      <body className="min-h-full bg-white text-zinc-900">
+        <div className="min-h-screen bg-white text-zinc-900">
           <header
             className="sticky top-0 z-50 bg-white/90 backdrop-blur-md px-2 pt-2 border-b border-zinc-200"
-            style={{ backgroundColor: 'rgba(255, 255, 255, 0.9)' }}
           >
             <div className="mx-auto flex min-h-12 w-full max-w-6xl items-center px-4 sm:px-6 lg:px-8">
               <MathHeaderNav portfolioUrl={portfolioUrl} />

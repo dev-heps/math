@@ -1,20 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-:root {
-  color-scheme: light;
-  --color-bg: #ffffff;
-  --color-fg: #09090b;
-  --color-muted: #71717a;
-  --color-edge: rgba(0, 0, 0, 0.08);
-  --color-border: rgba(0, 0, 0, 0.15);
-  --color-card: rgba(0, 0, 0, 0.02);
-  --color-card-hover: rgba(0, 0, 0, 0.04);
-  --color-accent: #2563eb;
-  --bg: #ffffff;
-  --fg: #09090b;
-}
-
 @theme {
   --color-bg: #ffffff;
   --color-fg: #09090b;
@@ -36,8 +22,8 @@ html {
 }
 
 html, body {
-  background-color: #ffffff !important;
-  color: #09090b !important;
+  background-color: var(--color-bg);
+  color: var(--color-fg);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
