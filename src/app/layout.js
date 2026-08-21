@@ -33,9 +33,9 @@ export default function RootLayout({ children }) {
       <body className="min-h-full bg-white text-zinc-900">
         <div className="min-h-screen bg-white text-zinc-900">
           <header
-            className="sticky top-0 z-50 bg-white/90 backdrop-blur-md px-2 pt-2 border-b border-zinc-200"
+            className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-zinc-200"
           >
-            <div className="mx-auto flex min-h-12 w-full max-w-6xl items-center px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto flex h-14 w-full max-w-6xl items-center px-4 sm:px-6 lg:px-8">
               <MathHeaderNav portfolioUrl={portfolioUrl} />
             </div>
           </header>

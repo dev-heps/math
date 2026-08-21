@@ -23,7 +23,7 @@ export default function MathHeaderNav({ portfolioUrl }) {
   }
 
   return (
-    <nav className="flex flex-wrap items-center gap-x-6 gap-y-2 py-2 font-mono text-sm" aria-label="Math Archive navigation">
+    <nav className="flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-sm" aria-label="Math Archive navigation">
       <a 
         href={portfolioUrl} 
         className="text-zinc-400 hover:text-zinc-900 transition-colors flex items-center gap-1 group"
@@ -40,9 +40,9 @@ export default function MathHeaderNav({ portfolioUrl }) {
           <Link
             key={item.key}
             href={item.href}
-            className={`transition-all pb-0.5 ${
+            className={`transition-all ${
               active
-                ? 'text-zinc-950 font-bold border-b-2 border-zinc-900'
+                ? 'text-zinc-900 font-medium'
                 : 'text-zinc-500 hover:text-zinc-900 font-medium'
             }`}
           >
