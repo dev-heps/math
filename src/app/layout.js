@@ -47,7 +47,7 @@ export default function RootLayout({ children }) {
           <footer
             className="mx-auto w-full max-w-6xl px-4 pb-10 text-center font-mono text-xs text-zinc-400 sm:px-6 lg:px-8 border-t border-zinc-100 mt-16"
           >
-            &copy; 2026 Dongwoo Lee. Back to <a href={portfolioUrl} className="text-zinc-900 hover:underline underline-offset-4">Portfolio</a>.
+            &copy; 2026 Dongwoo Lee. Back to <a href={portfolioUrl} className="text-zinc-900 hover:underline underline-offset-4">Home</a>.
           </footer>
         </div>
       </body>

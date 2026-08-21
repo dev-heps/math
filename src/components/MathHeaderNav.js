@@ -29,7 +29,7 @@ export default function MathHeaderNav({ portfolioUrl }) {
         className="text-zinc-400 hover:text-zinc-900 transition-colors flex items-center gap-1 group"
       >
         <span className="text-zinc-300 group-hover:-translate-x-0.5 transition-transform">←</span>
-        <span>Portfolio</span>
+        <span>Home</span>
       </a>
 
       <div className="h-4 w-px bg-zinc-200" aria-hidden="true" />
