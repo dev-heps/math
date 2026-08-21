@@ -4,7 +4,7 @@ import createMDX from '@next/mdx'
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   output: 'export',
-  basePath: '/math-archive',
+  basePath: '/math',
   trailingSlash: true,
   images: {
     unoptimized: true,

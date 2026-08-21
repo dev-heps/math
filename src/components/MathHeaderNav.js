@@ -12,7 +12,7 @@ export default function MathHeaderNav({ portfolioUrl }) {
 
   const isActive = (itemHref) => {
     // Normalise trailing slashes and basePath
-    const cleanPath = pathname.replace(/^\/math-archive/, '') || '/'
+    const cleanPath = pathname.replace(/^\/math/, '') || '/'
     const normalizedPath = cleanPath.endsWith('/') && cleanPath !== '/' ? cleanPath.slice(0, -1) : cleanPath
     const normalizedHref = itemHref.endsWith('/') && itemHref !== '/' ? itemHref.slice(0, -1) : itemHref
 
