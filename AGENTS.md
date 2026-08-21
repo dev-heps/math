@@ -1,6 +1,6 @@
 # Agent Notes
 
-This repository is the standalone Math Archive for `https://dev-heps.github.io/math-archive/`.
+This repository is the standalone Math Archive for `https://dwlee.github.io/math-archive/`.
 
 ## Purpose
 
@@ -35,7 +35,7 @@ git diff --check
 
 After pushing, verify:
 
-- `https://dev-heps.github.io/math-archive/`
-- `https://dev-heps.github.io/math-archive/studies/`
-- `https://dev-heps.github.io/math-archive/formalization/`
-- `https://dev-heps.github.io/math-archive/models/`
+- `https://dwlee.github.io/math-archive/`
+- `https://dwlee.github.io/math-archive/studies/`
+- `https://dwlee.github.io/math-archive/formalization/`
+- `https://dwlee.github.io/math-archive/models/`
