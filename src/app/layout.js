@@ -22,7 +22,7 @@ export const metadata = {
 };
 
 const isDev = process.env.NODE_ENV === 'development';
-const portfolioUrl = isDev ? 'http://localhost:3000/' : 'https://dwlee-log.github.io/';
+const portfolioUrl = isDev ? 'http://localhost:3000/' : 'https://dev-dwlee.github.io/';
 
 export default function RootLayout({ children }) {
   return (
