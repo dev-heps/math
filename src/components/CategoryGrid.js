@@ -11,6 +11,7 @@ const categories = [
     topics: [
       { name: 'Set Theory', href: '/foundations/set-theory' },
       { name: 'Logic', href: '/foundations/logic' },
+      { name: 'Calculus (Practice)', href: '/foundations/calculus' },
     ]
   },
   {
