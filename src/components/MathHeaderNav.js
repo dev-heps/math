@@ -7,7 +7,8 @@ export default function MathHeaderNav({ portfolioUrl }) {
   const pathname = usePathname() || '/'
 
   const navItems = [
-    { label: 'Math Archive', href: '/', key: 'home' },
+    { label: 'Enjoying Math', href: '/enjoy', key: 'enjoy' },
+    { label: 'Topics', href: '/topics', key: 'topics' },
   ]
 
   const isActive = (itemHref) => {
@@ -16,8 +17,11 @@ export default function MathHeaderNav({ portfolioUrl }) {
     const normalizedPath = cleanPath.endsWith('/') && cleanPath !== '/' ? cleanPath.slice(0, -1) : cleanPath
     const normalizedHref = itemHref.endsWith('/') && itemHref !== '/' ? itemHref.slice(0, -1) : itemHref
 
-    if (normalizedHref === '/') {
-      return normalizedPath === '/' || normalizedPath === ''
+    if (normalizedHref === '/enjoy') {
+      return normalizedPath.startsWith('/enjoy') || normalizedPath === '/'
+    }
+    if (normalizedHref === '/topics') {
+      return !normalizedPath.startsWith('/enjoy') && normalizedPath !== '/'
     }
     return normalizedPath.startsWith(normalizedHref)
   }

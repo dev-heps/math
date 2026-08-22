@@ -285,3 +285,183 @@ export function FoundationsIcon({ color = '#4338ca' }) {
   const canvasRef = useCanvasAnimation(draw);
   return <canvas ref={canvasRef} className="block" />;
 }
+
+// 6. KDS (기초부터 시작하는 대학원 수학): 3D 회전 토러스 링 (Torus Wireframe)
+export function KdsIcon({ color = '#d97706' }) {
+  const draw = (ctx, time, size) => {
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1;
+    ctx.lineCap = 'round';
+    
+    const cx = size / 2;
+    const cy = size / 2;
+    const R = size * 0.28; // major radius
+    const r = size * 0.12; // minor radius
+    
+    const rotX = time * 0.7;
+    const rotY = time * 0.9;
+
+    ctx.beginPath();
+    const uSegments = 12;
+    const vSegments = 8;
+    
+    for (let i = 0; i < uSegments; i++) {
+      const u = (i / uSegments) * Math.PI * 2;
+      for (let j = 0; j <= vSegments; j++) {
+        const v = (j / vSegments) * Math.PI * 2;
+        
+        let x = (R + r * Math.cos(v)) * Math.cos(u);
+        let y = (R + r * Math.cos(v)) * Math.sin(u);
+        let z = r * Math.sin(v);
+        
+        // 3D rotation
+        let y1 = y * Math.cos(rotX) - z * Math.sin(rotX);
+        let z1 = y * Math.sin(rotX) + z * Math.cos(rotX);
+        let x2 = x * Math.cos(rotY) + z1 * Math.sin(rotY);
+        
+        const px = cx + x2;
+        const py = cy + y1;
+        
+        if (j === 0) ctx.moveTo(px, py);
+        else ctx.lineTo(px, py);
+      }
+    }
+    ctx.stroke();
+  };
+  const canvasRef = useCanvasAnimation(draw);
+  return <canvas ref={canvasRef} className="block" />;
+}
+
+// 7. JMS (직장인과 문과생들을 위한 수학): 황금비 피보나치 나선 & 기하학 (Golden Spiral)
+export function JmsIcon({ color = '#ea580c' }) {
+  const draw = (ctx, time, size) => {
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1.4;
+    ctx.lineCap = 'round';
+    
+    ctx.save();
+    ctx.translate(size / 2, size / 2);
+    ctx.rotate(time * 0.5);
+
+    ctx.beginPath();
+    const maxTheta = Math.PI * 4;
+    const a = 0.8;
+    const b = 0.18;
+    
+    for (let theta = 0; theta <= maxTheta; theta += 0.08) {
+      const r = a * Math.exp(b * theta);
+      const x = r * Math.cos(theta);
+      const y = r * Math.sin(theta);
+      
+      if (theta === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+
+    // 중심 포인트
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.arc(0, 0, 2, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.restore();
+  };
+  const canvasRef = useCanvasAnimation(draw);
+  return <canvas ref={canvasRef} className="block" />;
+}
+
+// 8. 일변수미적분학: 곡선 위의 동적 접선 & 미분 (Dynamic Tangent on Sine Curve)
+export function SingleCalculusIcon({ color = '#0284c7' }) {
+  const draw = (ctx, time, size) => {
+    const cx = size / 2;
+    const cy = size / 2;
+    const amp = size * 0.28;
+    
+    // 1. 함수 곡선 f(x) = amp * sin(freq * x)
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    for (let px = 2; px <= size - 2; px++) {
+      const xNorm = ((px - 2) / (size - 4)) * Math.PI * 2 - Math.PI;
+      const py = cy - amp * Math.sin(xNorm);
+      if (px === 2) ctx.moveTo(px, py);
+      else ctx.lineTo(px, py);
+    }
+    ctx.stroke();
+    
+    // 2. 접점 x0 (시간에 따라 좌우 왕복)
+    const tNorm = Math.sin(time * 1.8) * 1.8; // -1.8 ~ 1.8 rad
+    const p0x = cx + (tNorm / Math.PI) * (size * 0.38);
+    const p0y = cy - amp * Math.sin(tNorm);
+    const slope = -amp * Math.cos(tNorm) * (Math.PI / (size * 0.38));
+    
+    // 접선 그리기
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    const tanLen = 10;
+    ctx.moveTo(p0x - tanLen, p0y - slope * tanLen);
+    ctx.lineTo(p0x + tanLen, p0y + slope * tanLen);
+    ctx.stroke();
+    
+    // 접점 표시
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.arc(p0x, p0y, 2.5, 0, Math.PI * 2);
+    ctx.fill();
+  };
+  const canvasRef = useCanvasAnimation(draw);
+  return <canvas ref={canvasRef} className="block" />;
+}
+
+// 9. 양자컴퓨팅 (Quantum Computing): 3D 블로흐 구면 & 상태 벡터 (Bloch Sphere Qubit)
+export function QuantumIcon({ color = '#8b5cf6' }) {
+  const draw = (ctx, time, size) => {
+    const cx = size / 2;
+    const cy = size / 2;
+    const R = size * 0.36;
+    
+    // 외곽 구면 원
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 0.8;
+    ctx.globalAlpha = 0.4;
+    ctx.beginPath();
+    ctx.arc(cx, cy, R, 0, Math.PI * 2);
+    ctx.stroke();
+    
+    // 적도 타원 (Equator)
+    ctx.beginPath();
+    ctx.ellipse(cx, cy, R, R * 0.3, 0, 0, Math.PI * 2);
+    ctx.stroke();
+    
+    // Z축 (수직축: |0> / |1>)
+    ctx.beginPath();
+    ctx.moveTo(cx, cy - R);
+    ctx.lineTo(cx, cy + R);
+    ctx.stroke();
+    
+    ctx.globalAlpha = 1.0;
+    
+    // 회전하는 큐비트 상태 벡터 |psi>
+    const theta = Math.PI / 4 + Math.sin(time * 1.5) * 0.35;
+    const phi = time * 2;
+    
+    const vx = R * Math.sin(theta) * Math.cos(phi);
+    const vy = -R * Math.cos(theta) + R * Math.sin(theta) * Math.sin(phi) * 0.3;
+    
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1.6;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(cx + vx, cy + vy);
+    ctx.stroke();
+    
+    // 벡터 끝점 (상태 포인트)
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.arc(cx + vx, cy + vy, 2.8, 0, Math.PI * 2);
+    ctx.fill();
+  };
+  const canvasRef = useCanvasAnimation(draw);
+  return <canvas ref={canvasRef} className="block" />;
+}

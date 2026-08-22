@@ -1,15 +1,29 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, IBM_Plex_Mono, Lora, Noto_Serif_KR } from "next/font/google";
 import MathHeaderNav from "@/components/MathHeaderNav";
 import "./globals.css";
 import "katex/dist/katex.min.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-sans-base",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const ibmPlexMono = IBM_Plex_Mono({
+  weight: ['400', '500', '600', '700'],
+  variable: "--font-mono-base",
+  subsets: ["latin"],
+});
+
+const lora = Lora({
+  weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: "--font-serif-en",
+  subsets: ["latin"],
+});
+
+const notoSerifKr = Noto_Serif_KR({
+  weight: ['400', '500', '600', '700'],
+  variable: "--font-serif-kr",
   subsets: ["latin"],
 });
 
@@ -28,7 +42,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${ibmPlexMono.variable} ${lora.variable} ${notoSerifKr.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-white text-zinc-900">
         <div className="min-h-screen bg-white text-zinc-900">

@@ -11,8 +11,9 @@
   --color-card-hover: rgba(0, 0, 0, 0.04);
   --color-accent: #2563eb;
 
-  --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
-  --font-mono: var(--font-geist-mono), 'IBM Plex Mono', ui-monospace, monospace;
+  --font-sans: var(--font-sans-base), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-mono-base), 'IBM Plex Mono', ui-monospace, monospace;
+  --font-serif: var(--font-serif-en), var(--font-serif-kr), "Crimson Text", "Noto Serif KR", Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 /* ── Base ── */
@@ -36,9 +37,11 @@ html, body {
 
 /* ── Article surface ── */
 .math-article {
-  --article-measure: 76ch;
-  color: #09090b;
-  line-height: 1.75;
+  --article-measure: 48rem;
+  color: #18181b;
+  line-height: 1.8;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
 }
 
 .math-article > :where(h1, h2, h3, h4, p, ul, ol, blockquote) {
@@ -50,37 +53,41 @@ html, body {
 }
 
 .math-article h1 {
+  font-family: var(--font-sans);
   font-size: 2.25rem;
-  font-weight: 700;
-  line-height: 1.15;
+  font-weight: 600;
+  line-height: 1.25;
   letter-spacing: -0.02em;
-  color: #09090b;
+  color: #000;
   margin-bottom: 1.5rem;
 }
 
 .math-article h2 {
+  font-family: var(--font-sans);
   font-size: 1.5rem;
-  font-weight: 650;
-  letter-spacing: -0.01em;
-  color: #09090b;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #000;
   margin-top: 2.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--color-edge);
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .math-article h3 {
-  font-size: 1.2rem;
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
   font-weight: 600;
-  color: #18181b;
-  margin-top: 1.75rem;
-  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+  color: #111;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 .math-article p {
-  color: #27272a;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  color: #222;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
 }
 
 .math-article a {
@@ -107,41 +114,39 @@ html, body {
 .math-card {
   display: flex;
   flex-direction: column;
-  padding: 1.25rem;
-  border: 1px solid var(--color-edge);
-  border-radius: 0.75rem;
-  background: var(--color-card);
+  padding: 1.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0;
+  background: #fff;
   text-decoration: none !important;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color 0.15s ease;
+  font-family: var(--font-sans);
 }
 
 .math-card:hover {
-  border-color: var(--color-border);
-  background: var(--color-card-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  border-color: #000;
 }
 
 .math-card-eyebrow {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
-  color: var(--color-muted);
+  color: #6b7280;
   letter-spacing: 0.05em;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .math-card-title {
   font-size: 1.15rem;
-  font-weight: 650;
-  color: #09090b;
+  font-weight: 600;
+  color: #000;
   margin-bottom: 0.5rem;
 }
 
 .math-card-desc {
   font-size: 0.9rem;
-  color: var(--color-muted);
+  color: #4b5563;
   line-height: 1.6;
 }
 
@@ -226,3 +231,353 @@ html, body {
   overflow-y: hidden;
   padding: 0.25rem 0;
 }
+
+/* ── Math Callout Boxes (MathNote components) ── */
+.math-callout {
+  margin: 1.75rem 0;
+  padding: 1rem 1.25rem;
+  border: none;
+  border-left: 2px solid #cbd5e1;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  background: transparent;
+  font-family: var(--font-serif);
+}
+
+.math-callout-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+  color: #111;
+}
+
+.math-callout-title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #333;
+}
+.math-callout-title::before { content: " ("; }
+.math-callout-title::after { content: ") "; }
+
+.math-callout-body {
+  font-style: italic;
+}
+
+.math-callout-body > *:first-child { margin-top: 0; }
+.math-callout-body > *:last-child { margin-bottom: 0; }
+
+/* Definition */
+.math-callout--def { border-left-color: #000; }
+.math-callout--def .math-callout-body { font-style: normal; }
+
+/* Theorem */
+.math-callout--thm { border-left-color: #000; }
+
+/* Proof */
+.math-callout--proof {
+  border-left: none;
+  padding-left: 0;
+}
+.math-callout--proof .math-callout-label {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  display: inline;
+  margin-right: 0.5rem;
+}
+.math-callout--proof .math-callout-label::after { content: "."; }
+.math-callout--proof .math-callout-body {
+  font-style: normal;
+  display: inline;
+}
+
+.math-proof-qed {
+  float: right;
+  font-size: 1.1rem;
+  color: #000;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Example */
+.math-callout--example { border-left-color: #64748b; }
+.math-callout--example .math-callout-body { font-style: normal; }
+
+/* Exercise */
+.math-callout--exercise { border-left-color: #64748b; }
+.math-callout--exercise .math-callout-body { font-style: normal; }
+
+/* Intuition */
+.math-callout--intuition {
+  border-left: none;
+  border-top: 1px dashed #cbd5e1;
+  border-bottom: 1px dashed #cbd5e1;
+  padding: 1rem 0;
+}
+.math-callout--intuition .math-callout-label {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+.math-callout--intuition .math-callout-body { font-style: normal; }
+
+/* ── YouTube Embed ── */
+.yt-embed-wrapper {
+  margin: 2rem 0;
+}
+
+.yt-embed-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  margin-bottom: 0.6rem !important;
+}
+
+.yt-embed-frame {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid var(--color-edge);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.yt-embed-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ── KDS Curriculum List ── */
+.kds-curriculum {
+  margin: 3rem 0;
+  font-family: var(--font-sans);
+}
+
+.kds-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding: 0 0.5rem;
+}
+
+.kds-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.kds-stat-label, .kds-stat-value, .kds-progress-label {
+  font-size: 0.85rem;
+  color: #4b5563;
+}
+
+.kds-stat-value {
+  font-weight: 600;
+  color: #000;
+}
+
+.kds-stat-value--done {
+  color: #000;
+}
+
+.kds-stat-divider {
+  width: 1px;
+  height: 12px;
+  background: #d1d5db;
+  margin: 0 0.5rem;
+}
+
+.kds-progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.kds-progress-bar {
+  width: 100px;
+  height: 2px;
+  background: #e5e7eb;
+}
+
+.kds-progress-fill {
+  height: 100%;
+  background: #000;
+  transition: width 0.6s ease;
+}
+
+/* Shared row / col layout */
+.kds-col-header,
+.kds-row {
+  display: grid;
+  grid-template-columns: 3rem 1fr 3.5rem 3.5rem 4.5rem;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.5rem;
+}
+
+.kds-col-header {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #000;
+  border-top: 2px solid #000;
+  border-bottom: 1px solid #000;
+  margin-bottom: 0.25rem;
+}
+
+.kds-list {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid #000;
+}
+
+.kds-row {
+  border-bottom: 1px solid #f3f4f6;
+  transition: background 0.15s;
+}
+
+.kds-row:last-child {
+  border-bottom: none;
+}
+
+.kds-row:hover {
+  background: #f9fafb;
+}
+
+.kds-num {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.kds-title {
+  font-size: 0.9rem;
+  color: #000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.kds-title-link {
+  color: #000;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: #d1d5db;
+  font-weight: 500;
+}
+
+.kds-title-link:hover {
+  text-decoration-color: #000;
+}
+
+.kds-title-plain {
+  font-weight: 400;
+  color: #6b7280;
+}
+
+.kds-badge {
+  font-size: 0.7rem;
+  text-align: center;
+  color: #4b5563;
+}
+
+.kds-duration {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #9ca3af;
+  text-align: right;
+}
+
+.kds-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.kds-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #9ca3af;
+  transition: color 0.15s;
+}
+
+.kds-btn:hover {
+  color: #000;
+}
+
+.kds-btn--empty {
+  color: #e5e7eb;
+  cursor: default;
+}
+
+.kds-btn--empty:hover {
+  color: #e5e7eb;
+}
+
+@media (max-width: 600px) {
+  .kds-col-header,
+  .kds-row {
+    grid-template-columns: 2.25rem 1fr 3rem 4rem;
+  }
+  .kds-duration { display: none; }
+}
+
+/* ── Comment Block (Academic style) ── */
+.comment-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin: 2rem 0;
+  padding: 1.25rem 1.5rem;
+  border-left: 2px solid #000;
+  background: #f9fafb;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.comment-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-top: 0.1rem;
+}
+
+.comment-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.comment-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #4b5563;
+  margin-bottom: 0.5rem;
+}
+
+.comment-text {
+  color: #111;
+}
+
+.comment-text > *:first-child { margin-top: 0; }
+.comment-text > *:last-child  { margin-bottom: 0; }
